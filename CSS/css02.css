@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @charset "utf-8";
 /* CSS Document */
 	.box1 {
@@ -13,3 +14,20 @@
 
 @media (min-width: 1009px) and (max-width: 1134px){
 }
+=======
+@charset "utf-8";
+/* CSS Document */
+	.box1 {
+		padding: 0.5em 1em;
+		margin: 2em 0;
+		font-weight: bold;
+		border: solid 3px #000000;
+	}
+	.box1 p {
+			margin: 0; 
+			padding: 0;
+	}
+
+@media (min-width: 1009px) and (max-width: 1134px){
+}
+>>>>>>> develop
