@@ -12,10 +12,10 @@
 	
 			<script>
 
-			function DisplayPinta(TagName,TextURL,Experi)
+			function DisplayPinta(TagName,TextURL)
 			{		
 				var elem = document.getElementById(TagName);
-				elem.innerHTML = "<iframe src=" + TextURL + " width='800' height='600'>" + Experi + "</iframe>";
+				elem.innerHTML = "<iframe src=" + TextURL + " width='800' height='600'></iframe>";
 			}
 				
 			</script>	
@@ -36,7 +36,7 @@
 	<button id="button1">MENU</button>
 	<ul class="list1">
 		<li>
-			<a href="javascript:DisplayPinta('test','html/pinta_eyes.html','目の描き方');">目の描き方</a>
+			<a href="javascript:DisplayPinta('test','html/pinta_eyes.html');">目の描き方</a>
 		</li>
 		<li>
 			<a data-pin-do="embedBoard" data-pin-lang="ja" data-pin-board-width="300" data-pin-scale-height="400" data-pin-scale-width="800" href="https://www.pinterest.jp/Zaz4416/eyes/">eyes</a>
