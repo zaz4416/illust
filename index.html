@@ -4,22 +4,23 @@
 <meta charset="utf-8">
 <meta name="pinterest" content="nopin" />
 <meta name="p:domain_verify" content="1c1055ca177d6c7238963d330d22d2d8"/>
-<title>b</title>
+<meta name="description" content="ページの要約をここに書きます">
+<title>top</title>
 
 <script src="js/jquery-3.6.0.min.js"></script>
 <script src="js/script.js"></script>
 	
 			<script>
-			function ssx(TextURL)
+				
+			function ssy(TextURL)
 			{
 				//TextURL = "https://www.pinterest.jp/Zaz4416/brigthtone/";
 				TextURL = "'" + TextURL + "'";			
 				var elem = document.getElementById("test");
 				elem.innerHTML 
-					= "<a data-pin-do='embedBoard' data-pin-lang='ja' data-pin-board-width='400' data-pin-scale-height='400' data-pin-scale-width='800' href="+
-					TextURL
-					+"target='_blank' rel='noopener'>click</a>";
+					= '<iframe src="pinta02.html">Eyes</iframe>';
 			}
+				
 			</script>	
 	
 <link rel="stylesheet" href="CSS/style.css">
@@ -34,9 +35,6 @@
 	
 <p>ピンタレスト&nbsp;</p>
 
-	<!--
-<iframe src="https://assets.pinterest.com/ext/embed.html?id=787918897320363600" height="891" width="450" frameborder="0" scrolling="no" ></iframe>
--->
 	
 <div id="test">ここに絵を表示します</div>
 	
@@ -44,16 +42,10 @@
 	<button id="button1">MENU</button>
 	<ul class="list1">
 		<li>
-			<a href='javascript:ssx("https://www.pinterest.jp/Zaz4416/brigthtone/");'>Bright Tone</a>
+			<a href='javascript:ssy("https://www.pinterest.jp/Zaz4416/brigthtone/");'>Eyes</a>
 		</li>
 		<li>
 			<a data-pin-do="embedBoard" data-pin-lang="ja" data-pin-board-width="400" data-pin-scale-height="400" data-pin-scale-width="800" href="https://www.pinterest.jp/Zaz4416/eyes/">eyes</a>
-		</li>
-		<li>
-			<a href="javascript:ssx();">NAV 03</a>
-		</li>
-		<li>
-			<a href="#">NAV 04</a>
 		</li>
 		<li>
 			<a href="#">NAV 05</a>
@@ -128,6 +120,8 @@
   </tbody>
 </table>
 
+
 <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+
 </body>
 </html>
