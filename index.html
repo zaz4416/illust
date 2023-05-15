@@ -26,20 +26,18 @@
 			DisplayPinta('test','html/pinta_eyes.html');
 		});	
 		
-		DisplayPinta2("test2","");
+		DisplayPinta2("test2","https://www.pinterest.jp/Zaz4416/pose/");
 
 
 		
 	});	
 	
-	function DisplayPinta2(TagName2,TextURL2)
+	function DisplayPinta2(TagName,TextURL)
 	{
-			var TextUrl='https://www.pinterest.jp/Zaz4416/pose/';
-			var elem = document.getElementById(TagName2);
-			//elem.textContent =
-			elem.innerHTML =
-"<a data-pin-do='embedBoard' data-pin-lang='ja' data-pin-board-width='400' data-pin-scale-height='400' data-pin-scale-width='800' href='"+TextUrl+"'></a>";				
-			
+		var elem = document.getElementById(TagName);
+		//elem.textContent =
+		elem.innerHTML =
+		"<a data-pin-do='embedBoard' data-pin-lang='ja' data-pin-board-width='400' data-pin-scale-height='400' data-pin-scale-width='800' href="+TextURL+"></a>";	
 	}
 
 
