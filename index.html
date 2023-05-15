@@ -26,13 +26,28 @@
 			DisplayPinta('test','html/pinta_eyes.html');
 		});	
 		
-		DisplayPinta2("test2","https://www.pinterest.jp/Zaz4416/pose/");
-
-
-		
+		DisplayPintaWithID("JID_POSE","https://www.pinterest.jp/Zaz4416/pose/");
+		DisplayPintaWithID("JID_LINEA","https://www.pinterest.jp/Zaz4416/line-art/");
+		DisplayPintaWithID("JID_RPG_CHARA","https://www.pinterest.jp/Zaz4416/rpg-chracter/");
+		DisplayPintaWithID("JID_PAINTING","https://www.pinterest.jp/Zaz4416/painting/");
+	
+/*
+https://www.pinterest.jp/Zaz4416/sd-character/
+https://www.pinterest.jp/Zaz4416/face/
+	https://www.pinterest.jp/Zaz4416/shadowing/
+https://www.pinterest.jp/Zaz4416/hairstyle/
+https://www.pinterest.jp/Zaz4416/cothes
+https://www.pinterest.jp/Zaz4416/ref/red/	
+https://www.pinterest.jp/Zaz4416/ref/white/
+https://www.pinterest.jp/Zaz4416/ref/vivid/
+	https://www.pinterest.jp/Zaz4416/ref/yellow/
+https://www.pinterest.jp/Zaz4416/ref/blue/
+https://www.pinterest.jp/Zaz4416/ref/black/
+*/	
+	
 	});	
 	
-	function DisplayPinta2(TagName,TextURL)
+	function DisplayPintaWithID(TagName,TextURL)
 	{
 		var elem = document.getElementById(TagName);
 		//elem.textContent =
@@ -41,23 +56,23 @@
 	}
 
 
-function DisplayPinta(TagName,TextURL)
-{		
-	var elem = document.getElementById(TagName);
-	elem.innerHTML = "<iframe src=" + TextURL + " width='800' height='600'></iframe>";
-}
-	
-	
-function ScrollFunc (TagName)
-{
-	const LeftValue = document.getElementById(TagName).getBoundingClientRect().left;
-	const TopValue = document.getElementById(TagName).getBoundingClientRect().top;
-	window.scrollTo({
-		left: LeftValue,
-		top: TopValue,
-		behavior: 'smooth'
-	});
-}
+	function DisplayPinta(TagName,TextURL)
+	{		
+		var elem = document.getElementById(TagName);
+		elem.innerHTML = "<iframe src=" + TextURL + " width='800' height='600'></iframe>";
+	}
+
+
+	function ScrollFunc (TagName)
+	{
+		const LeftValue = document.getElementById(TagName).getBoundingClientRect().left;
+		const TopValue = document.getElementById(TagName).getBoundingClientRect().top;
+		window.scrollTo({
+			left: LeftValue,
+			top: TopValue,
+			behavior: 'smooth'
+		});
+	}
 
 	
 	
@@ -83,82 +98,26 @@ function ScrollFunc (TagName)
 			<a href="#">目の描き方</a>
 		</li>
 		<li>
-			<a href="javascript:ScrollFunc('LINE_ART');">線画</a>
+			<a href="javascript:ScrollFunc('JID_LINEA');">線画</a>
 		</li>
 		<li>
-			<a href="javascript:ScrollFunc('RPG_CHARACTER');">RPGキャラクター</a>
+			<a href="javascript:ScrollFunc('JID_POSE');">ポーズ</a>
+		</li>
+		<li>
+			<a href="javascript:ScrollFunc('JID_RPG_CHARA');">RPGキャラクター</a>
+		</li>
+		<li>
+			<a href="javascript:ScrollFunc('JID_PAINTING');">塗り</a>
 		</li>
 	</ul>
 </div>
 
 <div id="test">ここに絵を表示します</div>
-<div id="test2">ここに絵を表示します2</div>	
 	
-	
-
-
-<div id='LINE_ART'>
-<a data-pin-do="embedBoard" data-pin-lang="ja" data-pin-board-width="400" data-pin-scale-height="400" data-pin-scale-width="800" href="https://www.pinterest.jp/Zaz4416/line-art/"></a>	
-</div>
-
-<div id='RPG_CHARACTER'>
-<a data-pin-do="embedBoard" data-pin-lang="ja" data-pin-board-width="400" data-pin-scale-height="400" data-pin-scale-width="800" href="https://www.pinterest.jp/Zaz4416/rpg-chracter/"></a>
-</div>	
-
-<a data-pin-do="embedBoard" data-pin-lang="ja" data-pin-board-width="400" data-pin-scale-height="400" data-pin-scale-width="800" href="https://www.pinterest.jp/Zaz4416/pose/"></a>
-	
-
-<a data-pin-do="embedBoard" data-pin-lang="ja" data-pin-board-width="400" data-pin-scale-height="400" data-pin-scale-width="800" href="https://www.pinterest.jp/Zaz4416/painting/"></a>
-
-
-<a data-pin-do="embedBoard" data-pin-lang="ja" data-pin-board-width="400" data-pin-scale-height="400" data-pin-scale-width="800" href="https://www.pinterest.jp/Zaz4416/sd-character/"></a>
-
-	
-<a data-pin-do="embedBoard" data-pin-lang="ja" data-pin-board-width="400" data-pin-scale-height="400" data-pin-scale-width="800" href="https://www.pinterest.jp/Zaz4416/face/"></a>
-	
-
-<a data-pin-do="embedBoard" data-pin-lang="ja" data-pin-board-width="400" data-pin-scale-height="400" data-pin-scale-width="800" href="https://www.pinterest.jp/Zaz4416/shadowing/"></a>
-	
-<a data-pin-do="embedBoard" data-pin-lang="ja" data-pin-board-width="400" data-pin-scale-height="400" data-pin-scale-width="800" href="https://www.pinterest.jp/Zaz4416/hairstyle/"></a>
-	
-
-<a data-pin-do="embedBoard" data-pin-lang="ja" data-pin-board-width="400" data-pin-scale-height="400" data-pin-scale-width="800" href="https://www.pinterest.jp/Zaz4416/cothes/"></a>
-
-
-<a data-pin-do="embedBoard" data-pin-lang="ja" data-pin-board-width="400" data-pin-scale-height="400" data-pin-scale-width="800" href="https://www.pinterest.jp/Zaz4416/ref/red/"></a>
-	
-<a data-pin-do="embedBoard" data-pin-lang="ja" data-pin-board-width="400" data-pin-scale-height="400" data-pin-scale-width="800" href="https://www.pinterest.jp/Zaz4416/ref/white/"></a>
-	
-<a data-pin-do="embedBoard" data-pin-lang="ja" data-pin-board-width="400" data-pin-scale-height="400" data-pin-scale-width="800" href="https://www.pinterest.jp/Zaz4416/ref/vivid/"></a>
-	
-	
-<a data-pin-do="embedBoard" data-pin-lang="ja" data-pin-board-width="400" data-pin-scale-height="400" data-pin-scale-width="800" href="https://www.pinterest.jp/Zaz4416/ref/yellow/"></a>
-	
-<a data-pin-do="embedBoard" data-pin-lang="ja" data-pin-board-width="400" data-pin-scale-height="400" data-pin-scale-width="800" href="https://www.pinterest.jp/Zaz4416/ref/blue/"></a>
-	
-<a data-pin-do="embedBoard" data-pin-lang="ja" data-pin-board-width="400" data-pin-scale-height="400" data-pin-scale-width="800" href="https://www.pinterest.jp/Zaz4416/ref/black/"></a>
-
-	
-<table width="200" border="0">
-  <tbody>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>	
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-  </tbody>
-</table>
-
+<div id="JID_POSE">ポーズ</div>	
+<div id="JID_LINEA">線画</div>
+<div id="JID_RPG_CHARA">RPGキャラ</div>
+<div id="JID_PAINTING">RPGキャラ</div>
 
 
 <!-- ピンタレストを表示するために必須な記述 -->
