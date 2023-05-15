@@ -24,7 +24,16 @@
 
 		btn001.addEventListener('click', function(){
 			DisplayPinta('test','html/pinta_eyes.html');
-		});				
+		});	
+		
+		{		
+			var elem = document.getElementById("test2");
+			//elem.textContent =
+			elem.innerHTML =
+"<a data-pin-do='embedBoard' data-pin-lang='ja' data-pin-board-width='400' data-pin-scale-height='400' data-pin-scale-width='800' href='https://www.pinterest.jp/Zaz4416/pose/'></a>";			
+			
+		}
+		
 	});	
 	
  
@@ -82,7 +91,7 @@ function ScrollFunc (TagName)
 </div>
 
 <div id="test">ここに絵を表示します</div>
-	
+<div id="test2">ここに絵を表示します</div>	
 	
 	
 
