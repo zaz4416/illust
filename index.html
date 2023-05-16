@@ -26,10 +26,10 @@
 			DisplayPinta('test','html/pinta_eyes.html');
 		});	
 		
-		DisplayPintaWithID("JID_POSE",     "https://www.pinterest.jp/Zaz4416/pose/");
-		DisplayPintaWithID("JID_LINEA",    "https://www.pinterest.jp/Zaz4416/line-art/");
-		DisplayPintaWithID("JID_RPG_CHARA","https://www.pinterest.jp/Zaz4416/rpg-chracter/");
-		DisplayPintaWithID("JID_PAINTING", "https://www.pinterest.jp/Zaz4416/painting/");
+		DisplayPintaWithID("PINTA", "https://www.pinterest.jp/Zaz4416/pose/","JID_POSE","list01","ポーズ");
+		DisplayPintaWithID("PINTA", "https://www.pinterest.jp/Zaz4416/line-art/","JID_LINEA","list01","線画");
+		DisplayPintaWithID("PINTA", "https://www.pinterest.jp/Zaz4416/rpg-chracter/","JID_RPG_CHARA","list01","RPGキャラ");
+		DisplayPintaWithID("PINTA", "https://www.pinterest.jp/Zaz4416/painting/","JID_PAINTING","list01","塗り");
 	
 /*
 https://www.pinterest.jp/Zaz4416/sd-character/
@@ -47,12 +47,18 @@ https://www.pinterest.jp/Zaz4416/ref/black/
 	
 	});	
 	
-	function DisplayPintaWithID(TagName,TextURL)
+	function DisplayPintaWithID(TagName,TextURL,JumpID,ListID,ListName)
 	{
-		var elem = document.getElementById(TagName);
+		//ボードを表示
+		const elem = document.getElementById(TagName);
 		//elem.textContent =
-		elem.innerHTML =
-		"<a data-pin-do='embedBoard' data-pin-lang='ja' data-pin-board-width='800' data-pin-scale-height='400' data-pin-scale-width='800' href="+TextURL+"></a>";	
+		elem.innerHTML +=
+		"<div id="+JumpID+"><a data-pin-do='embedBoard' data-pin-lang='ja' data-pin-board-width='800' data-pin-scale-height='400' data-pin-scale-width='800' href="+TextURL+"></a></div>";
+		
+		// リスト追加
+		const list = document.getElementById(ListID);		
+		list.innerHTML +=		
+		"<li><a href='javascript:ScrollFunc(\""+JumpID+"\");'>"+ListName+"</a></li>";
 	}
 
 
@@ -93,31 +99,17 @@ https://www.pinterest.jp/Zaz4416/ref/black/
 
 <div id="content1">
 	<button id="button1">MENU</button>
-	<ul class="list1">
+	<ul class="list1" id="list01">
 		<li id="btn001">
 			<a href="#">目の描き方</a>
-		</li>
-		<li>
-			<a href="javascript:ScrollFunc('JID_LINEA');">線画</a>
-		</li>
-		<li>
-			<a href="javascript:ScrollFunc('JID_POSE');">ポーズ</a>
-		</li>
-		<li>
-			<a href="javascript:ScrollFunc('JID_RPG_CHARA');">RPGキャラクター</a>
-		</li>
-		<li>
-			<a href="javascript:ScrollFunc('JID_PAINTING');">塗り</a>
 		</li>
 	</ul>
 </div>
 
 <div id="test">ここに絵を表示します</div>
 	
-<div id="JID_POSE">ポーズ</div>	
-<div id="JID_LINEA">線画</div>
-<div id="JID_RPG_CHARA">RPGキャラ</div>
-<div id="JID_PAINTING">RPGキャラ</div>
+<div id="PINTA">ここにピンタレストのボードを表示</div>	
+
 
 
 <!-- ピンタレストを表示するために必須な記述 -->
