@@ -1,10 +1,28 @@
 <!doctype html>
 <html>
 <head>
+	
 <meta charset="utf-8">
 <meta name="pinterest" content="nopin" />
 
 <title>pinta02</title>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function(){
+		//---------------------------------------------------------------------------------
+		// HTMLの読み込みとパースが終わると、HTMLの記述内で使用しているid等のパラメータが使用可能となる。
+		// よって、idを使用する記述を、この関数内に記述しましょう。
+		//---------------------------------------------------------------------------------		
+		
+		start('test','https://www.pinterest.jp/Zaz4416/eyes/');	
+	});	
+
+	function start(TagName,TextURL){
+		var elem = document.getElementById(TagName);
+		elem.innerHTML = "'<a data-pin-do='embedBoard' data-pin-lang='ja' data-pin-board-width='200' data-pin-scale-height='400' data-pin-scale-width='0' href="+TextURL+"'></a>'";
+	}
+</script>
+	
 </head>
 	
 <!--
@@ -12,14 +30,10 @@
 	
 <body>
 	
-<div>
-	<p>目の描き方</p>
-	<a data-pin-do="embedBoard" data-pin-lang="ja" data-pin-board-width="200" data-pin-scale-height="400" data-pin-scale-width="0" href="https://www.pinterest.jp/Zaz4416/eyes/"></a>
-</div>
+<div id='test'>ここに絵を表示します</div>
 
 <!-- ピンタレストを表示するために必須な記述 -->
 <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
-
 </body>
 
 </html>
