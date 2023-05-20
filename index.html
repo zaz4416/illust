@@ -13,9 +13,30 @@
 <script src="js/script.js"></script>
 <script src="js/my_script.js"></script>
 
+<script>
+	function ScrollFunc (JumpID)
+	{
+		const elem = document.getElementById('PINTA_SRC').contentWindow.document.getElementById(JumpID);
+		//elem.innerHTML =
+		//elem.textContent = 
+		"'<a href=\"#" +  JumpID +   "\">タイトルの位置へジャンプする</a>'" 
+		
+		const LeftValue = elem.getBoundingClientRect().left;
+		const TopValue = elem.getBoundingClientRect().top;
+
+		window.scrollTo({
+			left: LeftValue,
+			top: TopValue,
+			behavior: 'smooth'
+		});
+
+	}
+</script>
+
+
 
 	
-<link href="CSS/style.css" rel="stylesheet">	
+<link rel="stylesheet" href="CSS/style.css">	
 <link href="CSS/css02.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -25,10 +46,16 @@
 	
 <body>
 	
+	<!-- ピンタレスト用の選択リスト -->
+	<div id="content1">
+		<button id="button1">MENU</button>
+		<ul class="list1" id="list01">
+		</ul>
+	</div>
+	
+		
 <p>ピンタレスト一覧</p>
-<iframe src="html/Pinta_Scroll.html" width="1200" height="600"></iframe>
+<iframe src="html/Pinta_Scroll.html" width="1200" height="600" id="PINTA_SRC"></iframe>
 
-<!-- ピンタレストを表示するために必須な記述 -->
-<script async defer src="//assets.pinterest.com/js/pinit.js"></script>
 </body>
 </html>
