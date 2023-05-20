@@ -1,4 +1,4 @@
-[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[<!doctype html>
+<!doctype html>
 <html>
 <head>
 
@@ -11,83 +11,9 @@
 
 <script src="js/jquery-3.6.0.min.js"></script>
 <script src="js/script.js"></script>
-<script>
-	
-	document.addEventListener('DOMContentLoaded', function(){
-		
-		//---------------------------------------------------------------------------------
-		// HTMLの読み込みとパースが終わると、HTMLの記述内で使用しているid等のパラメータが使用可能となる。
-		// よって、この関数内部で、ボタンクリック時のイベントを設定しましょう。
-		//---------------------------------------------------------------------------------
+<script src="js/my_script.js"></script>
+<script src="js/startup.js"></script> <!-- HTML読み込み完了後のJavaScript -->
 
-		var btn001= document.getElementById("btn001");
-
-		btn001.addEventListener('click', function(){
-			DisplayPinta('test','html/pinta_eyes.html');
-		});	
-		
-		DisplayPintaWithID("PINTA", "https://www.pinterest.jp/Zaz4416/pose/","JID_POSE","list01","ポーズ");
-		DisplayPintaWithID("PINTA", "https://www.pinterest.jp/Zaz4416/line-art/","JID_LINEA","list01","線画");
-		DisplayPintaWithID("PINTA", "https://www.pinterest.jp/Zaz4416/rpg-chracter/","JID_RPG_CHARA","list01","RPGキャラ");
-		DisplayPintaWithID("PINTA", "https://www.pinterest.jp/Zaz4416/painting/","JID_PAINTING","list01","塗り");
-		DisplayPintaWithID("PINTA", "https://www.pinterest.jp/Zaz4416/sd-character/","JID_SDCHAR","list01","SDキャラ");
-		DisplayPintaWithID("PINTA", "https://www.pinterest.jp/Zaz4416/face/","JID_FACE","list01","顔");
-		
-		DisplayPintaWithID("PINTA", "https://www.pinterest.jp/Zaz4416/shadowing/","JID_SHADOWING","list01","影付け");
-		DisplayPintaWithID("PINTA", "https://www.pinterest.jp/Zaz4416/hairstyle/","JID_HAIRSTYLE","list01","髪型");
-		DisplayPintaWithID("PINTA", "https://www.pinterest.jp/Zaz4416/cothes/","JID_COTHES","list01","服");
-		DisplayPintaWithID("PINTA", "https://www.pinterest.jp/Zaz4416/face/","JID_FACE","list01","顔");
-		DisplayPintaWithID("PINTA", "https://www.pinterest.jp/Zaz4416/face/","JID_FACE","list01","顔");
-
-	
-/*
-https://www.pinterest.jp/Zaz4416/ref/red/	
-https://www.pinterest.jp/Zaz4416/ref/white/
-https://www.pinterest.jp/Zaz4416/ref/vivid/
-	https://www.pinterest.jp/Zaz4416/ref/yellow/
-https://www.pinterest.jp/Zaz4416/ref/blue/
-https://www.pinterest.jp/Zaz4416/ref/black/
-*/	
-	
-	});	
-	
-	function DisplayPintaWithID(TagName,TextURL,JumpID,ListID,ListName)
-	{
-		//ボードを表示
-		const elem = document.getElementById(TagName);
-		//elem.textContent =
-		elem.innerHTML +=
-		"<div id="+JumpID+"><a data-pin-do='embedBoard' data-pin-lang='ja' data-pin-board-width='800' data-pin-scale-height='400' data-pin-scale-width='800' href="+TextURL+"></a></div>";
-		
-		// リスト追加
-		const list = document.getElementById(ListID);		
-		list.innerHTML +=		
-		"<li><a href='javascript:ScrollFunc(\""+JumpID+"\");'>"+ListName+"</a></li>";
-	}
-
-
-	function DisplayPinta(TagName,TextURL)
-	{		
-		var elem = document.getElementById(TagName);
-		elem.innerHTML = "<iframe src=" + TextURL + " width='800' height='600'></iframe>";
-	}
-
-
-	function ScrollFunc (TagName)
-	{
-		const LeftValue = document.getElementById(TagName).getBoundingClientRect().left;
-		const TopValue = document.getElementById(TagName).getBoundingClientRect().top;
-		window.scrollTo({
-			left: LeftValue,
-			top: TopValue,
-			behavior: 'smooth'
-		});
-	}
-
-	
-	
-	
-</script>	
 	
 <link rel="stylesheet" href="CSS/style.css">	
 <link href="CSS/css02.css" rel="stylesheet" type="text/css">
