@@ -8,7 +8,21 @@
 <meta name="description" content="ページの要約をここに書きます">
 
 <title>top</title>
-
+<style>
+.base-frame {
+    display: flex;
+    flex-direction: row;	 /* 要素を横並びに配置 */
+    width: 100vw;
+    height: 100vh;
+  }
+  .left-frame {
+    width: 20%;				/* サイズ調整 */
+  }
+  .right-frame {
+    width: 80%;				/* サイズ調整 */
+    overflow: auto;
+  }
+</style>
 <script src="js/jquery-3.6.0.min.js"></script>
 <script src="js/script.js"></script>
 <script src="js/my_script.js"></script>
@@ -55,7 +69,16 @@
 	
 		
 <p>ピンタレスト一覧</p>
-<iframe src="html/Pinta_Scroll.html" width="1200" height="600" id="PINTA_SRC"></iframe>
+
+<div class="base-frame">
+	<div class="left-frame">
+	<iframe src="html/Pinta_Scroll.html" width="100%" height="100%" id="PINTA_SRC"></iframe>
+	</div>
+
+	<div class="right-frame">
+	<iframe src="html/Pinta_Scroll.html" width="100%" height="100%" id="PINTA_SRC"></iframe>
+	</div>
+</div>
 
 </body>
 </html>
