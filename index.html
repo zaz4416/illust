@@ -88,6 +88,20 @@
 	}
 </script>
 
+<script>
+	function buttonClick3(iFremaID, JumpID){
+		const elem = document.getElementById(iFremaID).contentWindow.document.getElementById(JumpID);
+
+		// 要素の位置を取得
+		const LeftValue = elem.getBoundingClientRect().left;
+		const TopValue = elem.getBoundingClientRect().top;
+
+		elem.scrollIntoView({  
+		behavior: 'smooth'  
+		});
+
+	}
+</script>
 
 
 
@@ -105,11 +119,13 @@
 <body>
 
 		
-<p>ピンタレスト一覧011</p>
+<p>ピンタレスト一覧012</p>
 
 <div class="base-frame">
 
 	<div class="left-frame">
+		    <button type="button" id="btn" onclick="buttonClick3('PINTA_SRC_RIGHT', 'JID_FACE')">顔へ移動</button>
+			<button type="button" id="btn" onclick="buttonClick3('PINTA_SRC_RIGHT', 'JID_SDCHAR')">SDキャラへ移動</button>
 	</div>
 
 	<div>
