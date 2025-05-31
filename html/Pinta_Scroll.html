@@ -37,15 +37,16 @@
 					var Jid="JID_FACE";
 					
 					// iframeのIDを使ってiframe要素を取得
-					var iframeElem = document.getElementById(Jid);
+					const iframeElem = document.getElementById(Jid);
 
 					if ( iframeElem == null ) {
 						alert("Error : Undefine " + Jid + ".");
 					}
 					else {
 						alert("id "+iframeElem.id);	// OK
+						alert("name "+iframeElem.name);	// OK
 
-						console.log(iframeElem.innerHTML);
+						//console.log(iframeElem.innerHTML);
 
 						alert("div "+iframeElem.querySelector('div'));
 						alert("innerHTML "+iframeElem.innerHTML);	// 一部しか、なさそう						
@@ -106,7 +107,7 @@ function DisplayPintaWithID(TagID,TextURL,JumpID,ListID,ListName)
 		
 	// 親HTMLにリスト追加
 	const list = parent.document.getElementById(ListID);		
-	list.innerHTML += "<li><a href='javascript:ScrollFunc(\""+JumpID+"\");'>"+ListName+"</a></li>";
+	list.innerHTML = outerHTML + "<li><a href='javascript:ScrollFunc(\""+JumpID+"\");'>"+ListName+"</a></li>";
 }
 </script>
 
