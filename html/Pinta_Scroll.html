@@ -28,54 +28,6 @@
 //			btn001.addEventListener('click', function(){
 //				DisplayPinta('test','html/pinta_eyes.html');
 //			});	
-			
-
-			var btn001= document.getElementById("JIDDD_BUN");
-
-			btn001.addEventListener('click', function(){
-				try{
-					var Jid="JID_FACE";
-					
-					// iframeのIDを使ってiframe要素を取得
-					const iframeElem = document.getElementById(Jid);
-
-					if ( iframeElem == null ) {
-						alert("Error : Undefine " + Jid + ".");
-					}
-					else {
-						alert("id "+iframeElem.id);	// OK
-						alert("name "+iframeElem.name);	// OK
-
-						//console.log(iframeElem.innerHTML);
-
-						alert("div "+iframeElem.querySelector('div'));
-						alert("innerHTML "+iframeElem.innerHTML);	// 一部しか、なさそう						
-						alert("outerHTML "+iframeElem.outerHTML);	// 一部しか、なさそう
-						
-
-						// iframeで読み込まれているページからdocumentオブジェクトを取得
-						var iframeDocument = iframeElem.contentDocument; // || iframeElem.contentWindow.document;
-
-						alert("Kind "+iframeDocument);
-
-						alert("id "+iframeElem.getElementById("JID_FACE"));						
-
-						// iframeのコンテンツにアクセス
-						var JumpIDLoc = iframeDocument.getElementById(JumpID);
-
-						alert(JumpIDLoc.name);
-
-						// スクロール位置を設定 (100pxの位置にスクロール)
-						iframeDocument.documentElement.scrollTop = 100;
-
-						// またはbody要素に対して設定 (ブラウザによる)
-						iframeDocument.body.scrollTop = 100;
-					};
-				} catch(e) {
-					alert(e);
-				}
-			})
-
 
 			DisplayPintaWithID("PINTA", _MyURL+"eyes/",         "JID_EYES",       "list01", "目");
 			DisplayPintaWithID("PINTA", _MyURL+"pose/",         "JID_POSE",       "list01", "ポーズ");
@@ -106,8 +58,15 @@ function DisplayPintaWithID(TagID,TextURL,JumpID,ListID,ListName)
 	"<div id="+JumpID+" name="+JumpID+"><a data-pin-do='embedBoard' data-pin-lang='ja' data-pin-board-width='800' data-pin-scale-height='400' data-pin-scale-width='800' href="+TextURL+"></a></div>";
 		
 	// 親HTMLにリスト追加
-	const list = parent.document.getElementById(ListID);		
-	list.innerHTML = outerHTML + "<li><a href='javascript:ScrollFunc(\""+JumpID+"\");'>"+ListName+"</a></li>";
+	const list = parent.document.getElementById(ListID);
+	
+	// [javascript,prototype]innerHTMLに +=(文字列結合)するのはよろしくないみたい
+	// https://greenspace.info/mt/2007/02/27/javascriptproto.html
+	//　list.innerHTML = outerHTML + "<a href='javascript:ScrollFunc(\""+JumpID+"\");'>"+ListName+"</a>";　こうやると、更新のタイミングしだいで、うまくできないことがあった。
+
+	const item = document.createElement("li");	// リストタグ追加
+	item.textContent = "<a href='javascript:ScrollFunc(\""+JumpID+"\");'>"+ListName+"</a>";	// リストタグに入れる要素
+	list.appendChild(item);
 }
 </script>
 
@@ -128,10 +87,11 @@ function DisplayPintaWithID(TagID,TextURL,JumpID,ListID,ListName)
 </head>
 
 <body>
-	<!-- ここにピンタレストのボードを表示 -->
-<div id="PINTA">ここにピンタレストのボードを表示</div>
 
-<button type="button" id="JIDDD_BUN">顔に移動</button>
+<a href="#JID_FACE">顔に移動</a>
+
+<!-- ここにピンタレストのボードを表示 -->
+<div id="PINTA">ここにピンタレストのボードを表示</div>
 
 <!-- ピンタレストを表示するために必須な記述 -->
 <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
