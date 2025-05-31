@@ -47,6 +47,50 @@
 	}
 </script>
 
+<script>
+	function scrollToPosition(JumpID) {
+
+		try{
+			// iframeのIDを使ってiframe要素を取得
+			var iframeElem = document.getElementById('PINTA_SRC');
+
+			iframeElem.onload = function(e)
+			{
+				alert(iframeElem.contentDocument);
+			}
+
+			if ( iframeElem == null ) {
+				alert("Error : Undefine " + "PINTA_SRC" + ".");
+			}
+			else {
+				alert(iframeElem.name);
+
+				// iframeで読み込まれているページからdocumentオブジェクトを取得
+				var iframeDocument = iframeElem.contentDocument || iframeElem.contentWindow.document;
+
+				alert("Kind "+iframeDocument);
+
+				// iframeのコンテンツにアクセス
+				var JumpIDLoc = iframeDocument.getElementById(JumpID);
+
+				alert(JumpIDLoc.name);
+
+				// スクロール位置を設定 (100pxの位置にスクロール)
+				iframeDocument.documentElement.scrollTop = 100;
+
+				// またはbody要素に対して設定 (ブラウザによる)
+				iframeDocument.body.scrollTop = 100;
+			};
+		} catch(e) {
+			alert(e);
+		}
+
+	}
+</script>
+
+
+
+
 
 
 	
@@ -63,15 +107,15 @@
 
 	
 		
-<p>ピンタレスト一覧aa3</p>
+<p>ピンタレスト一覧aa7</p>
 
 <div class="base-frame">
+
 	<div class="left-frame">
-		<iframe src="html/Pinta_Scroll.html" width="100%" height="100%" id="PINTA_SRC"></iframe>
 	</div>
 
 	<div class="right-frame">
-		<iframe src="html/Pinta_Scroll.html" width="100%" height="100%" id="PINTA_SRC"></iframe>
+		<iframe name = "Rgiht window" id="PINTA_SRC" src="html/Pinta_Scroll.html" width="100%" height="100%"></iframe>
 	</div>
 	
 	<!-- ピンタレスト用の選択リスト -->

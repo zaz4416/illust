@@ -28,6 +28,53 @@
 //			btn001.addEventListener('click', function(){
 //				DisplayPinta('test','html/pinta_eyes.html');
 //			});	
+			
+
+			var btn001= document.getElementById("JIDDD_BUN");
+
+			btn001.addEventListener('click', function(){
+				try{
+					var Jid="JID_FACE";
+					
+					// iframeのIDを使ってiframe要素を取得
+					var iframeElem = document.getElementById(Jid);
+
+					if ( iframeElem == null ) {
+						alert("Error : Undefine " + Jid + ".");
+					}
+					else {
+						alert("id "+iframeElem.id);	// OK
+
+						console.log(iframeElem.innerHTML);
+
+						alert("div "+iframeElem.querySelector('div'));
+						alert("innerHTML "+iframeElem.innerHTML);	// 一部しか、なさそう						
+						alert("outerHTML "+iframeElem.outerHTML);	// 一部しか、なさそう
+						
+
+						// iframeで読み込まれているページからdocumentオブジェクトを取得
+						var iframeDocument = iframeElem.contentDocument; // || iframeElem.contentWindow.document;
+
+						alert("Kind "+iframeDocument);
+
+						alert("id "+iframeElem.getElementById("JID_FACE"));						
+
+						// iframeのコンテンツにアクセス
+						var JumpIDLoc = iframeDocument.getElementById(JumpID);
+
+						alert(JumpIDLoc.name);
+
+						// スクロール位置を設定 (100pxの位置にスクロール)
+						iframeDocument.documentElement.scrollTop = 100;
+
+						// またはbody要素に対して設定 (ブラウザによる)
+						iframeDocument.body.scrollTop = 100;
+					};
+				} catch(e) {
+					alert(e);
+				}
+			})
+
 
 			DisplayPintaWithID("PINTA", _MyURL+"eyes/",         "JID_EYES",       "list01", "目");
 			DisplayPintaWithID("PINTA", _MyURL+"pose/",         "JID_POSE",       "list01", "ポーズ");
@@ -44,7 +91,7 @@
 			DisplayPintaWithID("PINTA", _MyURL+"ref/vivid/",    "JID_REF_VIVID",  "list01", "ビビット");
 			DisplayPintaWithID("PINTA", _MyURL+"ref/yellow/",   "JID_REF_YELLOW", "list01", "黄色っぽい");
 			DisplayPintaWithID("PINTA", _MyURL+"ref/blue/",     "JID_REF_BLUE",   "list01", "青っぽい");
-			DisplayPintaWithID("PINTA", _MyURL+"ref/black/",    "JID_REF_BLACKE", "list01", "黒っぽい");
+			DisplayPintaWithID("PINTA", _MyURL+"ref/black/",    "JID_REF_BLACKE", "list01", "黒っぽい");			
 	});
 </script>	
 	
@@ -55,14 +102,23 @@ function DisplayPintaWithID(TagID,TextURL,JumpID,ListID,ListName)
 	const elem = document.getElementById(TagID);
 	//elem.textContent =
 	elem.innerHTML +=
-	"<div id="+JumpID+"><a data-pin-do='embedBoard' data-pin-lang='ja' data-pin-board-width='800' data-pin-scale-height='400' data-pin-scale-width='800' href="+TextURL+"></a></div>";
+	"<div id="+JumpID+" name="+JumpID+"><a data-pin-do='embedBoard' data-pin-lang='ja' data-pin-board-width='800' data-pin-scale-height='400' data-pin-scale-width='800' href="+TextURL+"></a></div>";
 		
 	// 親HTMLにリスト追加
 	const list = parent.document.getElementById(ListID);		
-	list.innerHTML +=		
-	"<li><a href='javascript:ScrollFunc(\""+JumpID+"\");'>"+ListName+"</a></li>";
+	list.innerHTML += "<li><a href='javascript:ScrollFunc(\""+JumpID+"\");'>"+ListName+"</a></li>";
 }
 </script>
+
+<script>
+	// 縦スクロール－上
+	function framescrollu(JumpID) {
+	document.getElementById("frame1").contentWindow.scrollBy(0,-100);}
+	// 縦スクロール－下
+	function framescrolld() {
+	document.getElementById("frame1").contentWindow.scrollBy(0,100);}
+</script>
+
 
 	
 <link href="../CSS/style.css" rel="stylesheet" >	
@@ -72,7 +128,9 @@ function DisplayPintaWithID(TagID,TextURL,JumpID,ListID,ListName)
 
 <body>
 	<!-- ここにピンタレストのボードを表示 -->
-<div id="PINTA">ここにピンタレストのボードを表示</div>	
+<div id="PINTA">ここにピンタレストのボードを表示</div>
+
+<button type="button" id="JIDDD_BUN">顔に移動</button>
 
 <!-- ピンタレストを表示するために必須な記述 -->
 <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
