@@ -28,81 +28,25 @@
 <script src="js/my_script.js"></script>
 
 <script>
-	function ScrollFunc (JumpID)
-	{
-		const elem = document.getElementById('PINTA_SRC').contentWindow.document.getElementById(JumpID);
-		//elem.innerHTML =
-		//elem.textContent = 
-		"'<a href=\"#" +  JumpID +   "\">タイトルの位置へジャンプする</a>'" 
-		
-		const LeftValue = elem.getBoundingClientRect().left;
-		const TopValue = elem.getBoundingClientRect().top;
-
-		window.scrollTo({
-			left: LeftValue,
-			top: TopValue,
-			behavior: 'smooth'
-		});
-
-	}
-</script>
-
-<script>
-	function scrollToPosition(JumpID) {
-
-		try{
-			// iframeのIDを使ってiframe要素を取得
-			var iframeElem = document.getElementById('PINTA_SRC');
-
-			iframeElem.onload = function(e)
-			{
-				alert(iframeElem.contentDocument);
-			}
-
-			if ( iframeElem == null ) {
-				alert("Error : Undefine " + "PINTA_SRC" + ".");
-			}
-			else {
-				alert(iframeElem.name);
-
-				// iframeで読み込まれているページからdocumentオブジェクトを取得
-				var iframeDocument = iframeElem.contentDocument || iframeElem.contentWindow.document;
-
-				alert("Kind "+iframeDocument);
-
-				// iframeのコンテンツにアクセス
-				var JumpIDLoc = iframeDocument.getElementById(JumpID);
-
-				alert(JumpIDLoc.name);
-
-				// スクロール位置を設定 (100pxの位置にスクロール)
-				iframeDocument.documentElement.scrollTop = 100;
-
-				// またはbody要素に対して設定 (ブラウザによる)
-				iframeDocument.body.scrollTop = 100;
-			};
-		} catch(e) {
-			alert(e);
-		}
-
-	}
-</script>
-
-<script>
-	function buttonClick3(iFremaID, JumpID){
+	function buttonClick_iFrame(iFremaID, JumpID){
 		const elem = document.getElementById(iFremaID).contentWindow.document.getElementById(JumpID);
 
 		// 要素の位置を取得
 		const LeftValue = elem.getBoundingClientRect().left;
-		const TopValue = elem.getBoundingClientRect().top;
+		const TopValue  = elem.getBoundingClientRect().top;
 
 		elem.scrollIntoView({  
-		behavior: 'smooth'  
+			behavior: 'smooth'  
 		});
 
 	}
 </script>
 
+<script>
+	function buttonClick_Test(JumpID){
+		console.log(JumpID);
+	}
+</script>
 	
 <link rel="stylesheet" href="CSS/style.css">	
 <link href="CSS/css02.css" rel="stylesheet" type="text/css">
@@ -115,14 +59,14 @@
 <body>
 
 		
-<p>ピンタレスト一覧013</p>
+<p>ピンタレスト一覧014</p>
 
 <div class="base-frame">
 
-	<div class="left-frame">
-			<li><button type="button" id="btn" onclick="buttonClick3('PINTA_SRC_RIGHT', 'PINTA')">Topへ</button></li>
-		    <li><button type="button" id="btn" onclick="buttonClick3('PINTA_SRC_RIGHT', 'JID_FACE')">顔へ移動</button></li>
-			<li><button type="button" id="btn" onclick="buttonClick3('PINTA_SRC_RIGHT', 'JID_SDCHAR')">SDキャラへ移動</button></li>
+	<div class="left-frame" id="PINTA_LEFT_ID">
+			<li><button type="button" id="btn" onclick="buttonClick_iFrame('PINTA_SRC_RIGHT', 'PINTA_TOP')">Topへ</button></li>
+		    <li><button type="button" id="btn" onclick="buttonClick_iFrame('PINTA_SRC_RIGHT', 'JID_FACE')">顔へ移動</button></li>
+			<li><button type="button" id="btn" onclick="buttonClick_iFrame('PINTA_SRC_RIGHT', 'JID_SDCHAR')">SDキャラへ移動</button></li>
 	</div>
 
 	<div class="right-frame">

@@ -29,22 +29,22 @@
 //				DisplayPinta('test','html/pinta_eyes.html');
 //			});	
 
-			DisplayPintaWithID("PINTA", _MyURL+"eyes/",         "JID_EYES",       "list01", "目");
-			DisplayPintaWithID("PINTA", _MyURL+"pose/",         "JID_POSE",       "list01", "ポーズ");
-			DisplayPintaWithID("PINTA", _MyURL+"line-art/",     "JID_LINEA",      "list01", "線画");
-			DisplayPintaWithID("PINTA", _MyURL+"rpg-chracter/", "JID_RPG_CHARA",  "list01", "RPGキャラ");
-			DisplayPintaWithID("PINTA", _MyURL+"painting/",     "JID_PAINTING",   "list01", "塗り");
-			DisplayPintaWithID("PINTA", _MyURL+"sd-character/", "JID_SDCHAR",     "list01", "SDキャラ");
-			DisplayPintaWithID("PINTA", _MyURL+"face/",         "JID_FACE",       "list01", "顔");
-			DisplayPintaWithID("PINTA", _MyURL+"shadowing/",    "JID_SHADOWING",  "list01", "影付け");
-			DisplayPintaWithID("PINTA", _MyURL+"hairstyle/",    "JID_HAIRSTYLE",  "list01", "髪型");
-			DisplayPintaWithID("PINTA", _MyURL+"cothes/",       "JID_COTHES",     "list01", "服");
-			DisplayPintaWithID("PINTA", _MyURL+"ref/red/",      "JID_REF_RED",    "list01", "赤っぽい");
-			DisplayPintaWithID("PINTA", _MyURL+"ref/white/",    "JID_REF_WHITE",  "list01", "白っぽい");
-			DisplayPintaWithID("PINTA", _MyURL+"ref/vivid/",    "JID_REF_VIVID",  "list01", "ビビット");
-			DisplayPintaWithID("PINTA", _MyURL+"ref/yellow/",   "JID_REF_YELLOW", "list01", "黄色っぽい");
-			DisplayPintaWithID("PINTA", _MyURL+"ref/blue/",     "JID_REF_BLUE",   "list01", "青っぽい");
-			DisplayPintaWithID("PINTA", _MyURL+"ref/black/",    "JID_REF_BLACKE", "list01", "黒っぽい");			
+			DisplayPintaWithID("PINTA_TOP", _MyURL+"eyes/",         "JID_EYES",       "list01", "目");
+			DisplayPintaWithID("PINTA_TOP", _MyURL+"pose/",         "JID_POSE",       "list01", "ポーズ");
+			DisplayPintaWithID("PINTA_TOP", _MyURL+"line-art/",     "JID_LINEA",      "list01", "線画");
+			DisplayPintaWithID("PINTA_TOP", _MyURL+"rpg-chracter/", "JID_RPG_CHARA",  "list01", "RPGキャラ");
+			DisplayPintaWithID("PINTA_TOP", _MyURL+"painting/",     "JID_PAINTING",   "list01", "塗り");
+			DisplayPintaWithID("PINTA_TOP", _MyURL+"sd-character/", "JID_SDCHAR",     "list01", "SDキャラ");
+			DisplayPintaWithID("PINTA_TOP", _MyURL+"face/",         "JID_FACE",       "list01", "顔");
+			DisplayPintaWithID("PINTA_TOP", _MyURL+"shadowing/",    "JID_SHADOWING",  "list01", "影付け");
+			DisplayPintaWithID("PINTA_TOP", _MyURL+"hairstyle/",    "JID_HAIRSTYLE",  "list01", "髪型");
+			DisplayPintaWithID("PINTA_TOP", _MyURL+"cothes/",       "JID_COTHES",     "list01", "服");
+			DisplayPintaWithID("PINTA_TOP", _MyURL+"ref/red/",      "JID_REF_RED",    "list01", "赤っぽい");
+			DisplayPintaWithID("PINTA_TOP", _MyURL+"ref/white/",    "JID_REF_WHITE",  "list01", "白っぽい");
+			DisplayPintaWithID("PINTA_TOP", _MyURL+"ref/vivid/",    "JID_REF_VIVID",  "list01", "ビビット");
+			DisplayPintaWithID("PINTA_TOP", _MyURL+"ref/yellow/",   "JID_REF_YELLOW", "list01", "黄色っぽい");
+			DisplayPintaWithID("PINTA_TOP", _MyURL+"ref/blue/",     "JID_REF_BLUE",   "list01", "青っぽい");
+			DisplayPintaWithID("PINTA_TOP", _MyURL+"ref/black/",    "JID_REF_BLACKE", "list01", "黒っぽい");			
 	});
 </script>	
 	
@@ -53,33 +53,12 @@ function DisplayPintaWithID(TagID,TextURL,JumpID,ListID,ListName)
 {
 	//ボードを表示
 	const elem = document.getElementById(TagID);
-	//elem.textContent =
 	elem.innerHTML +=
 	"<div id="+JumpID+" name="+JumpID+"><a data-pin-do='embedBoard' data-pin-lang='ja' data-pin-board-width='800' data-pin-scale-height='400' data-pin-scale-width='800' href="+TextURL+"></a></div>";
-		
-	// 親HTMLにリスト追加
-	const list = parent.document.getElementById(ListID);
-	
-	// [javascript,prototype]innerHTMLに +=(文字列結合)するのはよろしくないみたい
-	// https://greenspace.info/mt/2007/02/27/javascriptproto.html
-	//　list.innerHTML = outerHTML + "<a href='javascript:ScrollFunc(\""+JumpID+"\");'>"+ListName+"</a>";　こうやると、更新のタイミングしだいで、うまくできないことがあった。
 
-	const item = document.createElement("li");	// リストタグ追加
-	item.textContent = "<a href='javascript:ScrollFunc(\""+JumpID+"\");'>"+ListName+"</a>";	// リストタグに入れる要素
-	list.appendChild(item);
+	//buttonClick_Test(JumpID);
 }
 </script>
-
-<script>
-	// 縦スクロール－上
-	function framescrollu(JumpID) {
-	document.getElementById("frame1").contentWindow.scrollBy(0,-100);}
-	// 縦スクロール－下
-	function framescrolld() {
-	document.getElementById("frame1").contentWindow.scrollBy(0,100);}
-</script>
-
-
 	
 <link href="../CSS/style.css" rel="stylesheet" >	
 <link href="../CSS/css02.css" rel="stylesheet" type="text/css">
@@ -89,7 +68,7 @@ function DisplayPintaWithID(TagID,TextURL,JumpID,ListID,ListName)
 <body>
 
 <!-- ここにピンタレストのボードを表示 -->
-<div id="PINTA"></div>
+<div id="PINTA_TOP"></div>
 
 <!-- ピンタレストを表示するために必須な記述 -->
 <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
