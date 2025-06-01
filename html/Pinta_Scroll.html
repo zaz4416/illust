@@ -1,0 +1,76 @@
+<!doctype html>
+<html><head>
+
+<meta charset="utf-8">
+<meta name="pinterest" content="nopin" />
+<meta name="p:domain_verify" content="1c1055ca177d6c7238963d330d22d2d8"/>
+<meta name="description" content="ページの要約をここに書きます">
+
+<title>top</title>
+
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script src="../js/script.js"></script>
+
+<script>
+	_MyURL = "https://www.pinterest.jp/Zaz4416/";
+</script>
+	
+<!-- HTML読み込み完了後のJavaScript -->
+<script>
+	document.addEventListener('DOMContentLoaded', function(){
+			//---------------------------------------------------------------------------------
+			// HTMLの読み込みとパースが終わると、HTMLの記述内で使用しているid等のパラメータが使用可能となる。
+			// よって、この関数内部で、ボタンクリック時のイベントを設定しましょう。
+			//---------------------------------------------------------------------------------
+
+//			var btn001= document.getElementById("btn001");
+//
+//			btn001.addEventListener('click', function(){
+//				DisplayPinta('test','html/pinta_eyes.html');
+//			});	
+
+			DisplayPintaWithID("PINTA_TOP", _MyURL+"eyes/",         "JID_EYES",       "list01", "目");
+			DisplayPintaWithID("PINTA_TOP", _MyURL+"pose/",         "JID_POSE",       "list01", "ポーズ");
+			DisplayPintaWithID("PINTA_TOP", _MyURL+"line-art/",     "JID_LINEA",      "list01", "線画");
+			DisplayPintaWithID("PINTA_TOP", _MyURL+"rpg-chracter/", "JID_RPG_CHARA",  "list01", "RPGキャラ");
+			DisplayPintaWithID("PINTA_TOP", _MyURL+"painting/",     "JID_PAINTING",   "list01", "塗り");
+			DisplayPintaWithID("PINTA_TOP", _MyURL+"sd-character/", "JID_SDCHAR",     "list01", "SDキャラ");
+			DisplayPintaWithID("PINTA_TOP", _MyURL+"face/",         "JID_FACE",       "list01", "顔");
+			DisplayPintaWithID("PINTA_TOP", _MyURL+"shadowing/",    "JID_SHADOWING",  "list01", "影付け");
+			DisplayPintaWithID("PINTA_TOP", _MyURL+"hairstyle/",    "JID_HAIRSTYLE",  "list01", "髪型");
+			DisplayPintaWithID("PINTA_TOP", _MyURL+"cothes/",       "JID_COTHES",     "list01", "服");
+			DisplayPintaWithID("PINTA_TOP", _MyURL+"ref/red/",      "JID_REF_RED",    "list01", "赤っぽい");
+			DisplayPintaWithID("PINTA_TOP", _MyURL+"ref/white/",    "JID_REF_WHITE",  "list01", "白っぽい");
+			DisplayPintaWithID("PINTA_TOP", _MyURL+"ref/vivid/",    "JID_REF_VIVID",  "list01", "ビビット");
+			DisplayPintaWithID("PINTA_TOP", _MyURL+"ref/yellow/",   "JID_REF_YELLOW", "list01", "黄色っぽい");
+			DisplayPintaWithID("PINTA_TOP", _MyURL+"ref/blue/",     "JID_REF_BLUE",   "list01", "青っぽい");
+			DisplayPintaWithID("PINTA_TOP", _MyURL+"ref/black/",    "JID_REF_BLACKE", "list01", "黒っぽい");			
+	});
+</script>	
+	
+<script>
+function DisplayPintaWithID(TagID,TextURL,JumpID,ListID,ListName)
+{
+	//ボードを表示
+	const elem = document.getElementById(TagID);
+	elem.innerHTML +=
+	"<div id="+JumpID+" name="+JumpID+"><a data-pin-do='embedBoard' data-pin-lang='ja' data-pin-board-width='800' data-pin-scale-height='400' data-pin-scale-width='800' href="+TextURL+"></a></div>";
+
+	//buttonClick_Test(JumpID);
+}
+</script>
+	
+<link href="../CSS/style.css" rel="stylesheet" >	
+<link href="../CSS/css02.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<!-- ここにピンタレストのボードを表示 -->
+<div id="PINTA_TOP"></div>
+
+<!-- ピンタレストを表示するために必須な記述 -->
+<script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+</body>
+</html>
