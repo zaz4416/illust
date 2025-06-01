@@ -56,7 +56,8 @@ function DisplayPintaWithID(TagID,TextURL,JumpID,ListID,ListName)
 	elem.innerHTML +=
 	"<div id="+JumpID+" name="+JumpID+"><a data-pin-do='embedBoard' data-pin-lang='ja' data-pin-board-width='800' data-pin-scale-height='400' data-pin-scale-width='800' href="+TextURL+"></a></div>";
 
-	//buttonClick_Test(JumpID);
+	const parentElem = window.parent.document.getElementById("PINTA_LEFT_ID");
+	parentElem.innerHTML += "<li><button type='button' id='btn' onclick=\"buttonClick_iFrame('PINTA_SRC_RIGHT', '" + JumpID + "')\">" + ListName + "へ移動" + "</button></li>";
 }
 </script>
 	
